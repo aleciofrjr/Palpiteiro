@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import api from "../../services/api";
-import Logo from "../../assets/airbnb-logo.svg";  // trocar logo
+import Logo from "../../assets/PALPITEIRO.png";
 
 import { Form, Container } from "./styles";
 
@@ -34,7 +34,7 @@ class SignUp extends Component {
     return (
       <Container>
         <Form onSubmit={this.handleSignUp}>
-          <img src={Logo} alt="Airbnb logo" /> 
+          <img src={Logo} alt="PALPITEIRO logo" /> 
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"
@@ -42,18 +42,48 @@ class SignUp extends Component {
             onChange={e => this.setState({ username: e.target.value })}
           />
           <input
-            type="email"
-            placeholder="Endereço de e-mail"
+            type="CPF"
+            placeholder="CPF"
+            onChange={e => this.setState({ email: e.target.value })}
+          />        
+          <input
+            type="Data"
+            placeholder="Data de Nascimento"
+            onChange={e => this.setState({ password: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Rua"
             onChange={e => this.setState({ email: e.target.value })}
           />
           <input
-            type="password"
-            placeholder="Senha"
-            onChange={e => this.setState({ password: e.target.value })}
+            type="Number"
+            placeholder="Número"
+            onChange={e => this.setState({ email: e.target.value })}
+          />  
+          <input
+            type="text"
+            placeholder="Bairro"
+            onChange={e => this.setState({ email: e.target.value })}
           />
-          <button type="submit">Cadastrar grátis</button>
+          <input
+            type="text"
+            placeholder="Cidade"
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+          <input
+            type="Adrees"
+            placeholder="Estado"
+            onChange={e => this.setState({ email: e.target.value })}
+          />          
+          <input
+            type="Integer"
+            placeholder="CEP"
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+          <button type="submit">Cadastrar</button>
           <hr />
-          <Link to="/signIn">Fazer login</Link>
+          <Link to="/">Voltar para Home</Link>
         </Form>
       </Container>
     );
