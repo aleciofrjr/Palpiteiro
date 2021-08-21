@@ -5,6 +5,7 @@ import Cadastro from "./pages/Cadastro";
 import CadTeam from "./pages/CadTeam";
 import CadTec from "./pages/CadTec";
 import CadJog from "./pages/CadJog";
+import Palpite from "./pages/Palpite";
 import Home from "./pages/Home";
 import { isAuthenticated } from "./services/auth";
 
@@ -30,6 +31,7 @@ const Routes = () => (
       <Route path="/CadTeam" component={CadTeam} />
       <Route path="/CadTec" component={CadTec} />
       <Route path="/CadJog" component={CadJog} />
+      <Route path="/Palpite" component={Palpite} />
       <PrivateRoute path="/app" component={() => <h1>App</h1>} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>

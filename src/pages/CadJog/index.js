@@ -88,7 +88,9 @@ class CadJog extends Component {
           />
           <button type="submit">Cadastrar</button>
           <hr />
-          <Link to="/">Voltar para Home</Link>
+          <Link to="/CadTeam">Cadastrar Time</Link>
+          <Link to="/CadTec">Cadastrar Técnico</Link>
+          <Link to="/Cadastro">Voltar para Menu anterior</Link>
         </Form>
       </Container>
     );
