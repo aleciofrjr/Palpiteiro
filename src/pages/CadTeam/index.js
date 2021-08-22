@@ -7,20 +7,23 @@ import { Form, Container } from "./styles";
 
 class CadTeam extends Component {
   state = {
-    username: "",
-    email: "",
-    password: "",
+    teamname: "",
+    cnpj: "",
+    dataFund: "",
+    posicao: "",
+    pontosGanhos: "",
+    jogosDisp: "",
     error: ""
   };
 
   handleCadTeam = async e => {
     e.preventDefault();
-    const { username, email, password } = this.state;
-    if (!username || !email || !password) {
+    const { teamname, cnpj, dataFund, posicao, pontosGanhos, jogosDisp } = this.state;
+    if (!teamname || !cnpj || !dataFund || !posicao || !pontosGanhos || !jogosDisp) {
       this.setState({ error: "Preencha todos os dados para cadastrar o time" });
     } else {
       try {
-        await api.post("/users", { username, email, password });
+        await api.post("/users", { teamname, cnpj, dataFund, posicao, pontosGanhos, jogosDisp });
         this.props.history.push("/");
       } catch (err) {
         console.log(err);
@@ -39,43 +42,33 @@ class CadTeam extends Component {
           <input
             type="text"
             placeholder="Nome do time"
-            onChange={e => this.setState({ username: e.target.value })}
+            onChange={e => this.setState({ teamname: e.target.value })}
           />
           <input
             type="text"
             placeholder="CNPJ"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ cnpj: e.target.value })}
           />        
           <input
             type="Date"
             placeholder="Data de fundação"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={e => this.setState({ dataFund: e.target.value })}
           />
           <input
             type="Interger"
             placeholder="Posição"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ posicao: e.target.value })}
           />
           <input
             type="Number"
             placeholder="Pontos Ganhos"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ pontosGanhos: e.target.value })}
           />  
-          <input
-            type="text"
-            placeholder="Bairro"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
           <input
             type="Number"
             placeholder="Jogos Disputados"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ jogosDisp: e.target.value })}
           />
-          <input
-            type="Adrees"
-            placeholder="Estado"
-            onChange={e => this.setState({ email: e.target.value })}
-          /> 
           <button type="submit">Cadastrar</button>
           <hr />
           <Link to="/CadJog">Cadastrar Jogador</Link>

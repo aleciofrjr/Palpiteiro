@@ -7,24 +7,32 @@ import { Form, Container } from "./styles";
 
 class CadTec extends Component {
   state = {
-    username: "",
-    email: "",
+    cbfID: "",
+    name: "",
+    cpf: "",
+    dataNasc: "",
+    rua: "",
+    number: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+    cep: "",
     password: "",
     error: ""
   };
 
   handleCadTec = async e => {
     e.preventDefault();
-    const { username, email, password } = this.state;
-    if (!username || !email || !password) {
+    const { userId, name, cpf, dataNasc, rua, number, bairro, cidade,uf, cep, password } = this.state;
+    if (!userId  || !name  || !cpf  || !dataNasc  || !rua  || !number  || !bairro  || !cidade  || !uf  || !cep || !password) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
     } else {
       try {
-        await api.post("/users", { username, email, password });
+        await api.post("/users", { userId, name, cpf, dataNasc, rua, number, bairro, cidade,uf, cep, password });
         this.props.history.push("/");
       } catch (err) {
         console.log(err);
-        this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
+        this.setState({ error: "Ocorreu um erro ao registrar sua conta." });
       }
     }
   };
@@ -39,53 +47,58 @@ class CadTec extends Component {
           <input
             type="text"
             placeholder="CBF ID"
-            onChange={e => this.setState({ username: e.target.value })}
+            onChange={e => this.setState({ cbfID: e.target.value })}
           />
           <input
             type="text"
             placeholder="Nome do Técnico"
-            onChange={e => this.setState({ username: e.target.value })}
+            onChange={e => this.setState({ name: e.target.value })}
           />
           <input
             type="CPF"
             placeholder="CPF"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ cpf: e.target.value })}
           />        
           <input
             type="Data"
             placeholder="Data de Nascimento"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={e => this.setState({ dataNasc: e.target.value })}
           />
           <input
             type="text"
             placeholder="Rua"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ rua: e.target.value })}
           />
           <input
             type="Number"
             placeholder="Número"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ number: e.target.value })}
           />  
           <input
             type="text"
             placeholder="Bairro"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ bairro: e.target.value })}
           />
           <input
             type="text"
             placeholder="Cidade"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ cidade: e.target.value })}
           />
           <input
             type="Adrees"
             placeholder="Estado"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ estado: e.target.value })}
           />          
           <input
             type="Integer"
             placeholder="CEP"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ cep: e.target.value })}
           />
+          <input
+            type="password"
+            placeholder="Senha"
+            onChange={e => this.setState({ password: e.target.value })}
+          />          
           <button type="submit">Cadastrar</button>
           <hr />
           <Link to="/CadTeam">Cadastrar Time</Link>
