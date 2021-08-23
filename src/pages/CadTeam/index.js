@@ -24,7 +24,7 @@ class CadTeam extends Component {
     } else {
       try {
         await api.post("/users", { teamname, cnpj, dataFund, posicao, pontosGanhos, jogosDisp });
-        this.props.history.push("/");
+        this.props.history.push("http://localhost:8080/entidade/api/Clube");
       } catch (err) {
         console.log(err);
         this.setState({ error: "Ocorreu um erro ao registrar os dados do time." });

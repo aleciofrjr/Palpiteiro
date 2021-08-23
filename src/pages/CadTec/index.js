@@ -29,7 +29,7 @@ class CadTec extends Component {
     } else {
       try {
         await api.post("/users", { userId, name, cpf, dataNasc, rua, number, bairro, cidade,uf, cep, password });
-        this.props.history.push("/");
+        this.props.history.push("http://localhost:8080/entidade/api/Tecnico");
       } catch (err) {
         console.log(err);
         this.setState({ error: "Ocorreu um erro ao registrar sua conta." });

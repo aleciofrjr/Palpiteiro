@@ -1,4 +1,4 @@
-export const TOKEN_KEY = "@airbnb-Token";   // verificar valores
+export const TOKEN_KEY = "junior@fc.com";
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 export const login = token => {

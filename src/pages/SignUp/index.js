@@ -7,7 +7,7 @@ import { Form, Container } from "./styles";
 
 class SignUp extends Component {
   state = {
-    username: "",
+    id_user: "",
     email: "",
     password: "",
     error: ""
@@ -15,13 +15,13 @@ class SignUp extends Component {
 
   handleSignUp = async e => {
     e.preventDefault();
-    const { username, email, password } = this.state;
-    if (!username || !email || !password) {
+    const { id_user, email, password } = this.state;
+    if (!id_user || !email || !password) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
     } else {
       try {
-        await api.post("/users", { username, email, password });
-        this.props.history.push("/");
+        await api.post("/User", { id_user, email, password });
+        this.props.history.push("http://localhost:8080/entidade/api/User");
       } catch (err) {
         console.log(err);
         this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
@@ -38,47 +38,17 @@ class SignUp extends Component {
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"
-            placeholder="Nome de usuário"
+            placeholder="ID Usuario"
             onChange={e => this.setState({ username: e.target.value })}
-          />
+          />      
           <input
-            type="CPF"
-            placeholder="CPF"
-            onChange={e => this.setState({ email: e.target.value })}
-          />        
-          <input
-            type="Data"
-            placeholder="Data de Nascimento"
+            type="text"
+            placeholder="Endereço de e-mail"
             onChange={e => this.setState({ password: e.target.value })}
           />
           <input
-            type="text"
-            placeholder="Rua"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="Number"
-            placeholder="Número"
-            onChange={e => this.setState({ email: e.target.value })}
-          />  
-          <input
-            type="text"
-            placeholder="Bairro"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Cidade"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="Adrees"
-            placeholder="Estado"
-            onChange={e => this.setState({ email: e.target.value })}
-          />          
-          <input
-            type="Integer"
-            placeholder="CEP"
+            type="password"
+            placeholder="Senha"
             onChange={e => this.setState({ email: e.target.value })}
           />
           <button type="submit">Cadastrar</button>
