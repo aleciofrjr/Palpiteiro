@@ -16,7 +16,7 @@ export const Form = styled.form`
   align-items: center;
   img {
     width: 20rem;
-    margin: 450px 0 10px;
+    margin: 20px 0 10px;
   }
   p {
     color: #ff3333;

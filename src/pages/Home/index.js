@@ -23,7 +23,7 @@ class Home extends Component {
       try {
         const response = await api.post("/sessions", { user, password });
         login(response.data.token);
-        this.props.history.push("/app");
+        this.props.history.push("/Cadastro");
       } catch (err) {
         this.setState({
           error:
