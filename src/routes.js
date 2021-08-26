@@ -1,7 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import Cadastro from "./pages/Cadastro";
+import CadTeam from "./pages/CadTeam";
+import CadTec from "./pages/CadTec";
+import CadJog from "./pages/CadJog";
+import Palpite from "./pages/Palpite";
+import Home from "./pages/Home";
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -20,8 +25,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-    <Route path="/signIn" component={SignIn} />
+      <Route exact path="/" component={Home} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/Cadastro" component={Cadastro} />
+      <Route path="/CadTeam" component={CadTeam} />
+      <Route path="/CadTec" component={CadTec} />
+      <Route path="/CadJog" component={CadJog} />
+      <Route path="/Palpite" component={Palpite} />
       <PrivateRoute path="/app" component={() => <h1>App</h1>} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
@@ -29,3 +39,5 @@ const Routes = () => (
 );
 
 export default Routes;
+
+

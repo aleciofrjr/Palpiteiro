@@ -16,7 +16,7 @@ export const Form = styled.form`
   align-items: center;
   img {
     width: 20rem;
-    margin: 20px 0 10px;
+    margin: 400px 0 10px;
   }
   p {
     color: #ff3333;
@@ -52,11 +52,13 @@ export const Form = styled.form`
     border: none;
     border-bottom: 1px solid #cdcdcd;
     width: 100%;
+    
   }
   a {
     font-size: 16;
     font-weight: bold;
     color: #53084;
     text-decoration: none;
+ 
   }
 `;

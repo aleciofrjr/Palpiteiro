@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import api from "../../services/api";
-import Logo from "../../assets/airbnb-logo.svg";  // trocar logo
+import Logo from "../../assets/PALPITEIRO.png";
 
 import { Form, Container } from "./styles";
 
 class SignUp extends Component {
   state = {
-    username: "",
+    id_user: "",
     email: "",
     password: "",
     error: ""
@@ -15,12 +15,12 @@ class SignUp extends Component {
 
   handleSignUp = async e => {
     e.preventDefault();
-    const { username, email, password } = this.state;
-    if (!username || !email || !password) {
+    const { id_user, email, password } = this.state;
+    if (!id_user || !email || !password) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
     } else {
       try {
-        await api.post("/users", { username, email, password });
+        await api.post("/User", { id_user, email, password });
         this.props.history.push("/");
       } catch (err) {
         console.log(err);
@@ -34,26 +34,26 @@ class SignUp extends Component {
     return (
       <Container>
         <Form onSubmit={this.handleSignUp}>
-          <img src={Logo} alt="Airbnb logo" /> 
+          <img src={Logo} alt="PALPITEIRO logo" /> 
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"
-            placeholder="Nome de usuário"
+            placeholder="ID Usuario"
             onChange={e => this.setState({ username: e.target.value })}
-          />
+          />      
           <input
-            type="email"
+            type="text"
             placeholder="Endereço de e-mail"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={e => this.setState({ password: e.target.value })}
           />
           <input
             type="password"
             placeholder="Senha"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={e => this.setState({ email: e.target.value })}
           />
-          <button type="submit">Cadastrar grátis</button>
+          <button type="submit">Cadastrar</button>
           <hr />
-          <Link to="/signIn">Fazer login</Link>
+          <Link to="/">Voltar para Home</Link>
         </Form>
       </Container>
     );
